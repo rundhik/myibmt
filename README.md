@@ -1,0 +1,2 @@
+# mybimt
+Aplikasi Jadwal Kuliah
