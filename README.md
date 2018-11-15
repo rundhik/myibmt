@@ -10,6 +10,7 @@ set .env sesuai petunjuk
 </p>
 
 <p>
+Editing Managing Role with Spatie Package Library
 Edited by Kindhur
 </p>
 
