@@ -9,3 +9,7 @@ set .env sesuai petunjuk
 
 </p>
 
+<p>
+Edited by Kindhur
+</p>
+
