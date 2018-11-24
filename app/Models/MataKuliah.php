@@ -12,11 +12,16 @@ class MataKuliah extends Model
     protected $fillable = [
         'nm_matakuliah',
         'sks',
+        'kode_mk',
+        'semester',
     ];
 
     public function kurikulum()
     {
         return $this->belongsTo('MyIBMT\Models\Kurikulum', 'kurikulum_id');
-        
+    }
+    public function jadwalss()
+    {
+        return $this->hasMany('MyIBMT\Models\Jadwal', 'matakuliah_id', 'id');
     }
 }

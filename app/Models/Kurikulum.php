@@ -12,6 +12,7 @@ class Kurikulum extends Model
     protected $fillable = [
         'nm_kurikulum',
         'thn_semester',
+        'prodi',
     ];
 
     public function matakuliahs()
