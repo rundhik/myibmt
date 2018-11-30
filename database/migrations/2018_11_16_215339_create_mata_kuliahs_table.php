@@ -15,8 +15,10 @@ class CreateMataKuliahsTable extends Migration
     {
         Schema::create('mata_kuliahs', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('kode_mk')->nullable()->unique();
             $table->string('nm_matakuliah')->nullable();
             $table->integer('sks');
+            $table->integer('semester')->nullable();
             $table->integer('kurikulum_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();

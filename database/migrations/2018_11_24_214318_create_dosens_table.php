@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKurikulumsTable extends Migration
+class CreateDosensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateKurikulumsTable extends Migration
      */
     public function up()
     {
-        Schema::create('kurikulums', function (Blueprint $table) {
+        Schema::create('dosens', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nm_kurikulum')->nullable()->unique();
-            $table->integer('thn_semester')->nullable();
-            $table->integer('prodi')->nullable()->default(61201);
+            $table->string('nm_dosen')->nullable();
+            $table->string('nidn')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            
-            
         });
     }
 
@@ -32,6 +29,6 @@ class CreateKurikulumsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kurikulums');
+        Schema::dropIfExists('dosens');
     }
 }

@@ -19,4 +19,9 @@ class MataKuliah extends Model
         return $this->belongsTo('MyIBMT\Models\Kurikulum', 'kurikulum_id');
         
     }
+
+    public function jadwals()
+    {
+        return $this->hasMany('MyIBMT\Models\Jadwal', 'matakuliah_id', 'id');
+    }
 }

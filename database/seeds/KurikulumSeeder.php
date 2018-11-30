@@ -13,11 +13,30 @@ class KurikulumSeeder extends Seeder
     public function run()
     {
         $ngawur = [
-            ['nm_kurikulum' => 'S1 Kelas Pagi',
-            'thn_semester' => '20181'],
-            ['nm_kurikulum' => 'S1 Kelas Malam',
-            'thn_semester' => '20181'],
-
+            ['nm_kurikulum' => 'S1 IBM 2018-1',
+            'thn_semester' => '20181',
+            'prodi' => 61201],
+            ['nm_kurikulum' => 'S1 PRO 2018-1',
+            'thn_semester' => '20181',
+            'prodi' => 61201],
+            ['nm_kurikulum' => 'S1 WIM 2018-1',
+            'thn_semester' => '20181',
+            'prodi' => 61201],
+            ['nm_kurikulum' => 'S1 IBM 2018-2',
+            'thn_semester' => '20182',
+            'prodi' => 61201],
+            ['nm_kurikulum' => 'S1 PRO 2018-2',
+            'thn_semester' => '20182',
+            'prodi' => 61201],
+            ['nm_kurikulum' => 'S1 WIM 2018-2',
+            'thn_semester' => '20182',
+            'prodi' => 61101],
+            ['nm_kurikulum' => 'S2 Manajamen REG 2018-1',
+            'thn_semester' => '20181',
+            'prodi' => 61101],
+            ['nm_kurikulum' => 'S2 Manajamen REG 2018-2',
+            'thn_semester' => '20182',
+            'prodi' => 61101],
         ];
 
         foreach ($ngawur as $key => $sbrg) {

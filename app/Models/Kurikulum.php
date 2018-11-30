@@ -16,7 +16,18 @@ class Kurikulum extends Model
 
     public function matakuliahs()
     {
-    return $this->hasMany('MyIBMT\Models\MataKuliah', 'kurikulum_id', 'id');
-    
+        return $this->hasMany('MyIBMT\Models\MataKuliah', 'kurikulum_id', 'id');
+    }
+
+    public function jadwals()
+    {
+        return $this->hasManyThrough(
+            'MyIBMT\Models\Jadwal',
+            'MyIBMT\Models\MataKuliah',
+            'kurikulum_id', // Foreign Key di tabel mata_kuliahs
+            'matakuliah_id', // Foreign Key di tabel jadwals
+            'id', //Local key di tabel kurikulums
+            'id' //Local key di tabel mata_matakuliahs
+        );
     }
 }
