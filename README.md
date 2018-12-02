@@ -111,7 +111,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 <p>
 <strong>Membuat file 403 Forbidden (Permission Denied)</strong> : buat folder di <code>resources/views/errors</code> selanjutnya buat file <code>403.blade.php</code>. Edit file <code>403.blade.php</code>, isi semisal : Akses ditolak!
 </p>
-
+<p>
+Edit file UserMigrationTables di <code>database/migrations</code>. Tambahkan baris<br/>
+<pre>
+$this->softDeletes();
+</pre>
+Kemudian lakukan migrations ulang dengan perintah <code>php artisan migrate:fresh --seed</code> (untuk melakukan migration ulang dan sekaligus melakukan seeding dari database seeding yang sudah ada)
+</p>
 <p>
 Edit <code>DosenController</code>, tambahkan baris berikut di atas function index():
 <pre>
