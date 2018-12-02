@@ -16,9 +16,13 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+    Route::resource('kurikulum', 'KurikulumController');
+    Route::resource('matakuliah', 'MataKuliahController');
+    Route::resource('dosen', 'DosenController');
+    Route::resource('ruangan', 'RuangPerkuliahanController');
+    Route::resource('jadwal', 'JadwalController');
+    Route::resource('user', 'UserController');
+});
