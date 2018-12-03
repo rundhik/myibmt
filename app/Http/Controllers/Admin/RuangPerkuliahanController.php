@@ -14,7 +14,7 @@ class RuangPerkuliahanController extends Controller
      */
     public function index()
     {
-        //
+        return view('ruangperkuliahan.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class RuangPerkuliahanController extends Controller
      */
     public function create()
     {
-        //
+        return view('ruangperkuliahan.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class RuangPerkuliahanController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('ruangperkuliahan.show');
     }
 
     /**
@@ -57,7 +57,7 @@ class RuangPerkuliahanController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('ruangperkuliahan.edit');
     }
 
     /**

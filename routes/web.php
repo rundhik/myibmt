@@ -25,4 +25,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::resource('ruangan', 'RuangPerkuliahanController');
     Route::resource('jadwal', 'JadwalController');
     Route::resource('user', 'UserController');
+    Route::resource('role', 'RoleController');
 });

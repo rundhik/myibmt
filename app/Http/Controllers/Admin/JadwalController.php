@@ -14,7 +14,7 @@ class JadwalController extends Controller
      */
     public function index()
     {
-        //
+        return view('jadwal.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class JadwalController extends Controller
      */
     public function create()
     {
-        //
+        return view('jadwal.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class JadwalController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('jadwal.show');
     }
 
     /**
@@ -57,7 +57,7 @@ class JadwalController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('jadwal.edit');
     }
 
     /**

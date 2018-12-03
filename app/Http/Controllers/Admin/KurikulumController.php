@@ -14,7 +14,7 @@ class KurikulumController extends Controller
      */
     public function index()
     {
-        //
+        return view('kurikulum.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class KurikulumController extends Controller
      */
     public function create()
     {
-        //
+        return view('kurikulum.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class KurikulumController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('kurikulum.show');
     }
 
     /**
@@ -57,7 +57,7 @@ class KurikulumController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('kurikulum.edit');
     }
 
     /**

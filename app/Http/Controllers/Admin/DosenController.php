@@ -12,16 +12,16 @@ class DosenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('permission:create', ['only' => ['create', 'store']]);    
-        $this->middleware('permission:edit', ['only' => ['edit', 'update']]);   
-        $this->middleware('permission:delete', ['only' => ['show', 'delete']]);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('permission:create', ['only' => ['create', 'store']]);    
+    //     $this->middleware('permission:edit', ['only' => ['edit', 'update']]);   
+    //     $this->middleware('permission:delete', ['only' => ['show', 'delete']]);
+    // }
     
     public function index()
     {
-        return 'Halaman Utama Dosen';
+        return view('dosen.index');
     }
 
     /**
@@ -31,7 +31,7 @@ class DosenController extends Controller
      */
     public function create()
     {
-        return 'Halaman Create Dosen';
+        return view('dosen.create');
     }
 
     /**
@@ -53,7 +53,7 @@ class DosenController extends Controller
      */
     public function show($id)
     {
-        return 'Halaman untuk show / delete Dosen';
+        return view('dosen.show');
     }
 
     /**
@@ -64,7 +64,7 @@ class DosenController extends Controller
      */
     public function edit($id)
     {
-        return 'Halaman untuk edit user';
+        return view('dosen.edit');
     }
 
     /**

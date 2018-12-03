@@ -14,7 +14,7 @@ class MataKuliahController extends Controller
      */
     public function index()
     {
-        //
+        return view('matakuliah.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class MataKuliahController extends Controller
      */
     public function create()
     {
-        //
+        return view('matakuliah.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class MataKuliahController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('matakuliah.show');
     }
 
     /**
@@ -57,7 +57,7 @@ class MataKuliahController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('matakuliah.edit');
     }
 
     /**
