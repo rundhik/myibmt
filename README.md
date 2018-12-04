@@ -267,7 +267,7 @@ Dimana <code>view('dashboard');</code> adalah fungsi mengarahkan ke file <code>d
 </p>
 <p>
 Selanjutnya akan menata di masing-masing file views setiap controller. <br/>
-Tambahkan baris <code>return view('<nama_folder>.<nama_file>');</code> pada masing-masing controller. Saya contohkan untuk Controller MataKuliah
+Tambahkan baris <code>return view('nama_folder.nama_file');</code> pada masing-masing controller. Saya contohkan untuk Controller MataKuliah
 <pre>
 public function index()
     {
