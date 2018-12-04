@@ -197,3 +197,98 @@ Silahkan login ke aplikasi : http://localhost:8000/login sebagai superadmin. Set
 
 Selanjutnya login sebagai fakultas, dan akses dua alamat tadi. Seharusnya ketika user dengan role fakultas mengakses route web user, akses akan ditolak.
 </p>
+
+<h1>Membangun View dan Controller</h1>
+<br/>
+<h3>Membuat File Views</h3>
+<p>
+Buat file dalam folder <code>resources/views</code> antara lain : <br/>
+Folder <code>admin/role</code> : <br/>
+<code>views/admin/role/create.blade.php</code><br/>
+<code>views/admin/role/edit.blade.php</code><br/>
+<code>views/admin/role/index.blade.php</code><br/>
+<code>views/admin/role/show.blade.php</code><br/>
+Folder <code>admin/user</code> : <br/>
+<code>views/admin/user/create.blade.php</code><br/>
+<code>views/admin/user/edit.blade.php</code><br/>
+<code>views/admin/user/index.blade.php</code><br/>
+<code>views/admin/user/show.blade.php</code><br/>
+Folder <code>dosen</code> : <br/>
+<code>views/dosen/create.blade.php</code><br/>
+<code>views/dosen/edit.blade.php</code><br/>
+<code>views/dosen/index.blade.php</code><br/>
+<code>views/dosen/show.blade.php</code><br/>
+Folder <code>guest</code> : <br/>
+<code>views/guest/create.blade.php</code><br/>
+<code>views/guest/edit.blade.php</code><br/>
+<code>views/guest/index.blade.php</code><br/>
+<code>views/guest/show.blade.php</code><br/>
+Folder <code>jadwal</code> : <br/>
+<code>views/jadwal/create.blade.php</code><br/>
+<code>views/jadwal/edit.blade.php</code><br/>
+<code>views/jadwal/index.blade.php</code><br/>
+<code>views/jadwal/show.blade.php</code><br/>
+Folder <code>kurikulum</code> : <br/>
+<code>views/kurikulum/create.blade.php</code><br/>
+<code>views/kurikulum/edit.blade.php</code><br/>
+<code>views/kurikulum/index.blade.php</code><br/>
+<code>views/kurikulum/show.blade.php</code><br/>
+Folder <code>matakuliah</code> : <br/>
+<code>views/matakuliah/create.blade.php</code><br/>
+<code>views/matakuliah/edit.blade.php</code><br/>
+<code>views/matakuliah/index.blade.php</code><br/>
+<code>views/matakuliah/show.blade.php</code><br/>
+Folder <code>ruangperkuliahan</code> : <br/>
+<code>views/ruangperkuliahan/create.blade.php</code><br/>
+<code>views/ruangperkuliahan/edit.blade.php</code><br/>
+<code>views/ruangperkuliahan/index.blade.php</code><br/>
+<code>views/ruangperkuliahan/show.blade.php</code><br/>
+</p>
+<p>
+Update routing pada file <code>routes/web.php</code>. Tambahkan baris berikut pada <strong>Route Group</strong> admin.<br/>
+<code>Route::resource('user', 'UserController');</code>
+</p>
+<p>
+Buat file <code>resources/views/layouts/template.blade.php</code>. Isikan dengan kode seperti <a href="https://github.com/rundhik/myibmt/blob/kindhur_04_views_and_controller/resources/views/layouts/template.blade.php">berikut</a>.
+</p>
+<p>
+Untuk memudahkan membangun views pada masing-masing controller, buat file secara public dulu untuk memastikan resource css / js sudah bekerja dengan baik sesuai template yang digunakan. 
+Buat file <code>resources/views/dashboard.blade.php</code>. Isikan dengan kode seperti <a href="https://github.com/rundhik/myibmt/blob/kindhur_04_views_and_controller/resources/views/dashboard.blade.php">berikut</a>.
+</p>
+<p>
+Ubah fungsi index pada <code>app/Http/Controller/HomeController</code> menjadi : <br/>
+<pre>
+public function index()
+    {
+        return view('dashboard');
+    }
+</pre>
+Dimana <code>view('dashboard');</code> adalah fungsi mengarahkan ke file <code>dashboard.blade.php</code> yang baru saja dibuat.
+</p>
+<p>
+Selanjutnya akan menata di masing-masing file views setiap controller. <br/>
+Tambahkan baris <code>return view('<nama_folder>.<nama_file>');</code> pada masing-masing controller. Saya contohkan untuk Controller MataKuliah
+<pre>
+public function index()
+    {
+        return view('matakuliah.index');
+    }
+//
+public function create()
+    {
+        return view('matakuliah.create');
+    }
+//
+public function show($id)
+    {
+        return view('matakuliah.show');
+    }
+//
+public function edit($id)
+    {
+        return view('matakuliah.edit');
+    }
+</pre>
+Begitu juga untuk Controller lainnya.
+</p>
+<h4> Oke, selamat mencoba</h4>
