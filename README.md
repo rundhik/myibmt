@@ -249,11 +249,11 @@ Update routing pada file <code>routes/web.php</code>. Tambahkan baris berikut pa
 <code>Route::resource('user', 'UserController');</code>
 </p>
 <p>
-Buat file <code>resources/views/layouts/template.blade.php</code>. Isikan dengan kode seperti <a href="https://github.com/rundhik/myibmt/blob/kindhur_04_views_and_controller/resources/views/layouts/template.blade.php">berikut</a>.
+Buat file <code>resources/views/layouts/template.blade.php</code>. Isikan dengan kode seperti <a href="https://github.com/rundhik/myibmt/pull/7/files#diff-8db5913cf6993d31d25871abe4facca1">berikut</a>.
 </p>
 <p>
 Untuk memudahkan membangun views pada masing-masing controller, buat file secara public dulu untuk memastikan resource css / js sudah bekerja dengan baik sesuai template yang digunakan. 
-Buat file <code>resources/views/dashboard.blade.php</code>. Isikan dengan kode seperti <a href="https://github.com/rundhik/myibmt/blob/kindhur_04_views_and_controller/resources/views/dashboard.blade.php">berikut</a>.
+Buat file <code>resources/views/dashboard.blade.php</code>. Isikan dengan kode seperti <a href="https://github.com/rundhik/myibmt/pull/7/files#diff-c9030b2c275a2dba9ced0734ecbb0c22">berikut</a>.
 </p>
 <p>
 Ubah fungsi index pada <code>app/Http/Controller/HomeController</code> menjadi : <br/>
