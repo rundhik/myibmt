@@ -10,6 +10,7 @@ class MataKuliah extends Model
     use SoftDeletes;
     protected $table = 'mata_kuliahs';
     protected $fillable = [
+        'kode_mk',
         'nm_matakuliah',
         'sks',
     ];
