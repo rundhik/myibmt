@@ -14,10 +14,15 @@ class MataKuliah extends Model
         'sks',
     ];
 
-    public function kurikulum()
+    public function prodi()
     {
-        return $this->belongsTo('MyIBMT\Models\Kurikulum', 'kurikulum_id');
+        return $this->belongsTo('MyIBMT\Models\ProgramStudi', 'prodi_id');
         
+    }
+
+    public function kurikulums()
+    {
+        return $this->belongsToMany('App\Kurikulum', 'kurikulum_matakuliah', 'matakuliah_id', 'kurikulum_id');
     }
 
     public function jadwals()

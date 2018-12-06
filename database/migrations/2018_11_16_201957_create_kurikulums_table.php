@@ -16,12 +16,13 @@ class CreateKurikulumsTable extends Migration
         Schema::create('kurikulums', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nm_kurikulum')->nullable()->unique();
-            $table->integer('thn_semester')->nullable();
-            $table->integer('prodi')->nullable()->default(61201);
+            $table->integer('thn_semester_id')->unsigned();
+            $table->integer('kode_prodi_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
             
-            
+            $table->foreign('kode_prodi_id')->references('id')->on('program_studis')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('thn_semester_id')->references('id')->on('tahun_semesters')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -17,15 +17,13 @@ class MataKuliahSeeder extends Seeder
                 'kode_mk' => 'TI01',
                 'nm_matakuliah' => 'Pancasila',
                 'sks' => 3,
-                'semester' => 20181,
-                'kurikulum_id' => 1,
+                'prodi_id' => 1,
             ],
             [
                 'kode_mk' => 'TI02',
                 'nm_matakuliah' => 'Agama',
                 'sks' => 3,
-                'semester' => 20181,
-                'kurikulum_id' => 1,
+                'prodi_id' => 1,
             ],
         ];
         foreach ($ngawur as $key => $sbrg) {
