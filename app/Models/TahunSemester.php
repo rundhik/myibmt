@@ -5,20 +5,20 @@ namespace MyIBMT\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Kurikulum extends Model
+class TahunSemester extends Model
 {
     use SoftDeletes;
-    protected $table = 'kurikulums';
+    protected $table = 'tahun_semesters';
     protected $fillable = [
-        'nm_kurikulum',
         'thn_semester',
+        'deskripsi'
     ];
 
-    public function matakuliahs()
+    public function kurikulums()
     {
-        return $this->belongsToMany('App\MataKuliah', 'kurikulum_matakuliah', 'kurikulum_id', 'matakuliah_id');
+        return $this->hasMany('MyIBMT\Models\Kurikulum', 'thn_semester_id', 'id');
     }
-    
+
     public function jadwals()
     {
         return $this->hasManyThrough(

@@ -18,12 +18,21 @@ class CreateMataKuliahsTable extends Migration
             $table->string('kode_mk')->nullable()->unique();
             $table->string('nm_matakuliah')->nullable();
             $table->integer('sks');
-            $table->integer('semester')->nullable();
-            $table->integer('kurikulum_id')->unsigned();
+            $table->integer('prodi_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
 
+            $table->foreign('prodi_id')->references('id')->on('program_studis')->onDelete('cascade')->onUpdate('cascade');
+        });
+
+        Schema::create('kurikulum_matakuliah', function (Blueprint $table) {
+            $table->integer('kurikulum_id')->unsigned();
+            $table->integer('matakuliah_id')->unsigned();
+            
             $table->foreign('kurikulum_id')->references('id')->on('kurikulums')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('matakuliah_id')->references('id')->on('mata_kuliahs')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->primary(['kurikulum_id', 'matakuliah_id']);
         });
     }
 
