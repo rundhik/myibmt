@@ -16,7 +16,7 @@ class Kurikulum extends Model
 
     public function matakuliahs()
     {
-        return $this->belongsToMany('App\MataKuliah', 'kurikulum_matakuliah', 'kurikulum_id', 'matakuliah_id');
+        return $this->belongsToMany('MyIBMT\Models\MataKuliah', 'kelas_perkuliahans', 'kurikulum_id', 'matakuliah_id');
     }
     
     public function jadwals()

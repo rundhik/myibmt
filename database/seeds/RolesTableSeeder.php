@@ -28,5 +28,17 @@ class RolesTableSeeder extends Seeder
         foreach ($roles as $key => $value) {
             Role::create($value);
         }
+
+        $r = new Role;
+        $r = $r->find(1);
+        $r->attachPermission(1);
+        $r->attachPermission(2);
+        $r->attachPermission(3);
+        $r->attachPermission(4);
+
+        $r = new Role;
+        $r = $r->find(2);
+        $r->attachPermission(1);
+        $r->attachPermission(2);
     }
 }

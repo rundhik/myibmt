@@ -23,9 +23,9 @@ class TahunSemester extends Model
     {
         return $this->hasManyThrough(
             'MyIBMT\Models\Jadwal',
-            'MyIBMT\Models\MataKuliah',
-            'kurikulum_id', // Foreign Key di tabel mata_kuliahs
-            'matakuliah_id', // Foreign Key di tabel jadwals
+            'MyIBMT\Models\KelasPerkuliahan',
+            'kurikulum_id', // Foreign Key di tabel Kelas_perkuliahans
+            'kelas_perkuliahan_id', // Foreign Key di tabel jadwals
             'id', //Local key di tabel kurikulums
             'id' //Local key di tabel mata_matakuliahs
         );
