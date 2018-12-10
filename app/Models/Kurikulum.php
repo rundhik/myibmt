@@ -19,15 +19,15 @@ class Kurikulum extends Model
         return $this->belongsToMany('MyIBMT\Models\MataKuliah', 'kelas_perkuliahans', 'kurikulum_id', 'matakuliah_id');
     }
     
-    public function jadwals()
+    public function kelasperkuliahans()
     {
         return $this->hasManyThrough(
             'MyIBMT\Models\Jadwal',
-            'MyIBMT\Models\MataKuliah',
-            'kurikulum_id', // Foreign Key di tabel mata_kuliahs
-            'matakuliah_id', // Foreign Key di tabel jadwals
+            'MyIBMT\Models\KelasPerkuliahan',
+            'kurikulum_id', // Foreign Key di tabel kelas_perkuliahans
+            'kelas_perkuliahan_id', // Foreign Key di tabel jadwals
             'id', //Local key di tabel kurikulums
-            'id' //Local key di tabel mata_matakuliahs
+            'id' //Local key di tabel kelas_perkuliahans
         );
     }
 }

@@ -16,9 +16,9 @@ class Jadwal extends Model
         'status'
     ];
 
-    public function matakuliah()
+    public function kelasperkuliahan()
     {
-        return $this->belongsTo('MyIBMT\Models\MataKuliah', 'matakuliah_id', 'id');
+        return $this->belongsTo('MyIBMT\Models\KelasPerkuliahan', 'kelas_perkuliahan_id', 'id');
     }
 
     public function dosen()

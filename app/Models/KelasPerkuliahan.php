@@ -9,7 +9,7 @@ class KelasPerkuliahan extends Model
 {
     use SoftDeletes;
     protected $table = 'kelas_perkuliahans';
-    protected $fillable = ['kurikulum_id', 'matakuliah_id'];
+    protected $fillable = ['semester'];
 
     public function kurikulums()
     {
