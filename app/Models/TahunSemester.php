@@ -19,13 +19,13 @@ class TahunSemester extends Model
         return $this->hasMany('MyIBMT\Models\Kurikulum', 'thn_semester_id', 'id');
     }
 
-    public function jadwals()
+    public function kelasperkuliahans()
     {
         return $this->hasManyThrough(
-            'MyIBMT\Models\Jadwal',
             'MyIBMT\Models\KelasPerkuliahan',
-            'kurikulum_id', // Foreign Key di tabel Kelas_perkuliahans
-            'kelas_perkuliahan_id', // Foreign Key di tabel jadwals
+            'MyIBMT\Models\Kurikulum',
+            'thn_semester_id', // Foreign Key di tabel kurikulums
+            'kurikulum_id', // Foreign Key di tabel kelas_perkuliahans
             'id', //Local key di tabel kurikulums
             'id' //Local key di tabel mata_matakuliahs
         );
