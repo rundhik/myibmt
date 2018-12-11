@@ -44,7 +44,7 @@
                                 <div class="row m--margin-bottom-20">
                                     <div class="col-lg-3 m--margin-bottom-10-tablet-and-mobile">
                                         <label>Program Studi:</label>
-                                        <select class="form-control m-input">
+                                        <select class="form-control m-input" id="prodi">
                                         @foreach ($prodi as $p)
                                         <option value="{{$p->deskripsi}}">{{$p->deskripsi}}</option>
                                         @endforeach
@@ -52,27 +52,19 @@
                                     </div>
                                     <div class="col-lg-3 m--margin-bottom-10-tablet-and-mobile">
                                         <label>Tahun Akademik :</label>
-                                        <select class="form-control m-input">
+                                        <select class="form-control m-input" id="tahun_ajaran">
                                                 @foreach ($thnsmt as $t)
                                                 <option value="{{$t->deskripsi}}">{{$t->deskripsi}}</option>
                                                 @endforeach
                                         </select>
                                     </div>
                                     <div class="col-lg-6 m--margin-bottom-10-tablet-and-mobile">
-                                        <div class="col-lg-12">&nbsp;</div>
-                                        <button class="btn btn-brand m-btn m-btn--icon for" id="m_search">
-                                            <span>
-                                                <i class="la la-search"></i>
-                                                <span>Search</span>
+                                        <div class="m-input-icon m-input-icon--left">
+                                            <input type="text" class="form-control m-input" placeholder="Search..." id="generalSearch">
+                                            <span class="m-input-icon__icon m-input-icon__icon--left">
+                                                <span><i class="la la-search"></i></span>
                                             </span>
-                                        </button>
-                                        &nbsp;&nbsp;
-                                        <button class="btn btn-secondary m-btn m-btn--icon" id="m_reset">
-                                            <span>
-                                                <i class="la la-close"></i>
-                                                <span>Reset</span>
-                                            </span>
-                                        </button>
+                                        </div>                                        
                                     </div>
                                 </div>
                                 <div class="m-separator m-separator--md m-separator--dashed"></div>
@@ -123,3 +115,41 @@
 <!-- end::Body -->
 
 @endsection
+
+@push('kurikulum')
+<script>
+$(function() {
+    $(".m-datatable").mDatatable({
+        data:{
+            saveState:{cookie:!1}},
+            search:{input:$("#generalSearch")},
+            columns:[
+                {field:"DepositPaid",type:"number"},
+                {field:"OrderDate",type:"date",format:"YYYY-MM-DD"},
+                {field:"TahunAkademik",title:"Tahun Akademik",
+                template:function(e){
+                    var t={
+                        1:{title:"Pending",class:"m-badge--brand"},
+                        2:{title:"Delivered",class:" m-badge--metal"},
+                        3:{title:"Canceled",class:" m-badge--primary"},
+                        4:{title:"Success",class:" m-badge--success"},
+                        5:{title:"Info",class:" m-badge--info"},
+                        6:{title:"Danger",class:" m-badge--danger"},
+                        7:{title:"Warning",class:" m-badge--warning"}
+                    };
+                    return'<span class="m-badge '+t[e.Status].class+' m-badge--wide">'+t[e.Status].title+"</span>"}},
+                {field:"Prodi",title:"Program Studi",
+                template:function(e){
+                    var t={
+                        1:{title:"Online",state:"danger"},
+                        2:{title:"Retail",state:"primary"},
+                        3:{title:"Direct",state:"accent"}};
+                    return'<span class="m-badge m-badge--'+t[e.Type].state+' m-badge--dot"></span>&nbsp;<span class="m--font-bold m--font-'+t[e.Type].state+'">'+t[e.Type].title+"</span>"}}]}),
+    $("#tahun_ajaran").on("change",function(){e.search($(this).val().toLowerCase(),"TahunAkademik")}),
+    $("#prodi").on("change",function(){e.search($(this).val().toLowerCase(),"Prodi")}),
+    $("#prodi, #tahun_ajaran").selectpicker()}};
+    jQuery(document).ready(function(){DatatableHtmlTableDemo.init()
+    });
+});
+</script>
+@endpush
