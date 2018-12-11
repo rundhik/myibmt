@@ -5,7 +5,7 @@
 	<!-- begin::Head -->
 	<head>
 		<meta charset="utf-8" />
-		<title>{{ config('app.name', 'Laravel') }}</title>
+		<title>{{ config('app.name', 'Laravel') }} -  @yield('judul')</title>
 		<meta name="description" content="Latest updates and statistic charts">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
 
@@ -163,15 +163,16 @@
 									<ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
 										<li class="m-menu__item  m-menu__item " aria-haspopup="true"><a href="{{route('home')}}" class="m-menu__link "><span class="m-menu__item-here"></span><span class="m-menu__link-text">Dashboard</span></a></li>
 										<li class="m-menu__item  m-menu__item " aria-haspopup="true"><a href="{{route('dosen.index')}}" class="m-menu__link "><span class="m-menu__item-here"></span><span class="m-menu__link-text" title="Kelola Dosen">Dosen</span></a></li>
-										<li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="m-menu__link m-menu__toggle" title="Kelola Kurikulum"><span class="m-menu__item-here"></span><span
+										<li class="m-menu__item  m-menu__item " aria-haspopup="true"><a href="{{route('kurikulum.index')}}" class="m-menu__link "><span class="m-menu__item-here"></span><span class="m-menu__link-text" title="Kelola Dosen">Kurikulum</span></a></li>
+										{{-- <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="m-menu__link m-menu__toggle" title="Kelola Kurikulum"><span class="m-menu__item-here"></span><span
 												 class="m-menu__link-text">Kurikulum</span><i class="m-menu__hor-arrow la la-angle-down"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
 											<div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left"><span class="m-menu__arrow m-menu__arrow--adjust"></span>
 												<ul class="m-menu__subnav">
-													<li class="m-menu__item " aria-haspopup="true"><a href="{{route('kurikulum.index')}}" class="m-menu__link "><i class="m-menu__link-icon flaticon-interface-6"></i><span class="m-menu__link-title"> <span class="m-menu__link-wrap"> <span class="m-menu__link-text">S1 Manajemen</span></span></span></a></li>
-													<li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="{{route('kurikulum.index')}}" class="m-menu__link "><i class="m-menu__link-icon flaticon-interface-7"></i><span class="m-menu__link-text">S2 Manajemen</span></a></li>
+													<li class="m-menu__item " aria-haspopup="true"><a href="{{route('kurikulum.index',61201)}}" class="m-menu__link "><i class="m-menu__link-icon flaticon-interface-6"></i><span class="m-menu__link-title"> <span class="m-menu__link-wrap"> <span class="m-menu__link-text">S1 Manajemen</span></span></span></a></li>
+													<li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="{{route('kurikulum.index',61101)}}" class="m-menu__link "><i class="m-menu__link-icon flaticon-interface-7"></i><span class="m-menu__link-text">S2 Manajemen</span></a></li>
 												</ul>
 											</div>
-										</li>
+										</li> --}}
 										<li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" m-menu-link-redirect="1" aria-haspopup="true"><a href="javascript:;" class="m-menu__link m-menu__toggle" title="Kelola Mata Kuliah"><span
 												 class="m-menu__item-here"></span><span class="m-menu__link-text">Mata Kuliah</span><i class="m-menu__hor-arrow la la-angle-down"></i><i class="m-menu__ver-arrow la la-angle-right"></i></a>
 											<div class="m-menu__submenu  m-menu__submenu--fixed m-menu__submenu--left" style="width:600px"><span class="m-menu__arrow m-menu__arrow--adjust"></span>

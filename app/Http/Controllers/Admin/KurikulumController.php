@@ -4,6 +4,7 @@ namespace MyIBMT\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use MyIBMT\Http\Controllers\Controller;
+use MyIBMT\Models\Kurikulum;
 
 class KurikulumController extends Controller
 {
@@ -14,7 +15,13 @@ class KurikulumController extends Controller
      */
     public function index()
     {
-        return view('kurikulum.index');
+
+        $subheader = 'Kurikulum';
+        $k = new Kurikulum;
+        $prodi = $k->find(1)->prodi->all();
+        $thnsmt = $k->find(1)->thn_semester->all();
+        $data = $k->get();
+        return view('kurikulum.index',compact('subheader','prodi','thnsmt','data'));
     }
 
     /**

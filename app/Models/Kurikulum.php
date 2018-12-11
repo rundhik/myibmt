@@ -14,9 +14,14 @@ class Kurikulum extends Model
         'thn_semester',
     ];
 
-    public function matakuliahs()
+    public function prodi()
     {
-        return $this->belongsToMany('MyIBMT\Models\MataKuliah', 'kelas_perkuliahans', 'kurikulum_id', 'matakuliah_id');
+        return $this->belongsTo('MyIBMT\Models\ProgramStudi', 'kode_prodi_id');
+    }
+
+    public function thn_semester()
+    {
+        return $this->belongsTo('MyIBMT\Models\TahunSemester', 'thn_semester_id');
     }
     
     public function kelasperkuliahans()

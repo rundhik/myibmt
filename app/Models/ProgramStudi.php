@@ -14,8 +14,8 @@ class ProgramStudi extends Model
         'deskripsi'
     ];
 
-    public function matakuliahs()
+    public function kurikulums()
     {
-        return $this->hasMany('MyIBMT\Models\MataKuliah', 'prodi_id', 'id');
+        return $this->hasMany('MyIBMT\Models\Kurikulum', 'kode_prodi_id', 'id');
     }
 }
