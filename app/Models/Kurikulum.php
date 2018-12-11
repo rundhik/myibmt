@@ -14,20 +14,25 @@ class Kurikulum extends Model
         'thn_semester',
     ];
 
-    public function matakuliahs()
+    public function prodi()
     {
-        return $this->belongsToMany('App\MataKuliah', 'kurikulum_matakuliah', 'kurikulum_id', 'matakuliah_id');
+        return $this->belongsTo('MyIBMT\Models\ProgramStudi', 'kode_prodi_id');
+    }
+
+    public function thn_semester()
+    {
+        return $this->belongsTo('MyIBMT\Models\TahunSemester', 'thn_semester_id');
     }
     
-    public function jadwals()
+    public function kelasperkuliahans()
     {
         return $this->hasManyThrough(
             'MyIBMT\Models\Jadwal',
-            'MyIBMT\Models\MataKuliah',
-            'kurikulum_id', // Foreign Key di tabel mata_kuliahs
-            'matakuliah_id', // Foreign Key di tabel jadwals
+            'MyIBMT\Models\KelasPerkuliahan',
+            'kurikulum_id', // Foreign Key di tabel kelas_perkuliahans
+            'kelas_perkuliahan_id', // Foreign Key di tabel jadwals
             'id', //Local key di tabel kurikulums
-            'id' //Local key di tabel mata_matakuliahs
+            'id' //Local key di tabel kelas_perkuliahans
         );
     }
 }

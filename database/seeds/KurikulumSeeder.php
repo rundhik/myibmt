@@ -35,7 +35,7 @@ class KurikulumSeeder extends Seeder
             ],
             ['nm_kurikulum' => 'S1 WIM 2018-2',
             'thn_semester_id' => 2,
-            'kode_prodi_id' => 2
+            'kode_prodi_id' => 1
             ],
             ['nm_kurikulum' => 'S2 Manajamen REG 2018-1',
             'thn_semester_id' => 1,

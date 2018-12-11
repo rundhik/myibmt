@@ -22,5 +22,9 @@ class UserSeeder extends Seeder
         foreach ($ngawur as $key => $sbrg) {
             User::create($sbrg);
         }
+
+        $u = new User;
+        $u = $u->find(1);
+        $u->attachRole(1);
     }
 }

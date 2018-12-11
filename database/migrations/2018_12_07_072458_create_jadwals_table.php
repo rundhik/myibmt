@@ -15,7 +15,8 @@ class CreateJadwalsTable extends Migration
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('matakuliah_id')->unsigned();
+            $table->integer('kelas_perkuliahan_id')->unsigned();
+            $table->string('nm_kelas')->nullable();
             $table->integer('dosen_id')->unsigned();
             $table->integer('ruang_id')->unsigned();
             $table->date('hari')->nullable();
@@ -25,9 +26,9 @@ class CreateJadwalsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('matakuliah_id')
+            $table->foreign('kelas_perkuliahan_id')
                 ->references('id')
-                ->on('mata_kuliahs')
+                ->on('kelas_perkuliahans')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->foreign('dosen_id')
