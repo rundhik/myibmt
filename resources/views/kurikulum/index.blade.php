@@ -26,7 +26,7 @@
                             <div class="m-portlet__head-tools">
                                 <ul class="m-portlet__nav">
                                     <li class="m-portlet__nav-item">
-                                        <a href="#" class="btn btn-focus m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
+                                        <a href="{{route('kurikulum.create')}}" class="btn btn-focus m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
                                             <span>
                                                 <i class="la la-plus"></i>
                                                 <span>Tambah</span>
@@ -39,62 +39,30 @@
                         </div>
                         <div class="m-portlet__body">
 
-                            <!--begin: Search Form -->
-                            <form class="m-form m-form--fit m--margin-bottom-20">
-                                <div class="row m--margin-bottom-20">
-                                    <div class="col-lg-3 m--margin-bottom-10-tablet-and-mobile">
-                                        <label>Program Studi:</label>
-                                        <select class="form-control m-input">
-                                        @foreach ($prodi as $p)
-                                        <option value="{{$p->deskripsi}}">{{$p->deskripsi}}</option>
-                                        @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3 m--margin-bottom-10-tablet-and-mobile">
-                                        <label>Tahun Akademik :</label>
-                                        <select class="form-control m-input">
-                                                @foreach ($thnsmt as $t)
-                                                <option value="{{$t->deskripsi}}">{{$t->deskripsi}}</option>
-                                                @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-6 m--margin-bottom-10-tablet-and-mobile">
-                                        <div class="col-lg-12">&nbsp;</div>
-                                        <button class="btn btn-brand m-btn m-btn--icon for" id="m_search">
-                                            <span>
-                                                <i class="la la-search"></i>
-                                                <span>Search</span>
-                                            </span>
-                                        </button>
-                                        &nbsp;&nbsp;
-                                        <button class="btn btn-secondary m-btn m-btn--icon" id="m_reset">
-                                            <span>
-                                                <i class="la la-close"></i>
-                                                <span>Reset</span>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="m-separator m-separator--md m-separator--dashed"></div>
-                            </form>
-
                             <!--begin: Datatable -->
-                            <table class="table table-striped- table-bordered table-hover table-checkable">
+                            <table class="table table-striped- table-bordered table-hover table-checkable" id="kurikulum">
                                 <thead>
                                     <tr>
+                                        <th>Nama Kurikulum</th>
                                         <th>Tahun Akademik</th>
                                         <th>Program Studi</th>
-                                        <th>Nama Kurikulum</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($data as $d)
                                     <tr>                                      
+                                        <td>{{ $d->nm_kurikulum }}</td>
                                         <td>{{ MyIBMT\Models\Kurikulum::find($d->id)->thn_semester->deskripsi }}</td>
                                         <td>{{ MyIBMT\Models\Kurikulum::find($d->id)->prodi->deskripsi }}</td>
-                                        <td>{{ $d->nm_kurikulum }}</td>
-                                        <td>{{ $d->id }}</td>
+                                        <td>
+                                            <a class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" href="{{route('kurikulum.edit', $d->id)}}" title="Ubah">
+                                                <i class="la la-edit"></i>
+                                            </a>
+                                            <a class="m-portlet__nav-link btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill" href="{{route('kurikulum.show', $d->id)}}" title="Hapus">
+                                                <i class="la la-trash"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -108,9 +76,10 @@
                                 </tfoot>
                             </table>
                         </div>
+                        
                     </div>
                     <!--end::Portlet-->
-                    
+
                 </div>
             </div>
 
@@ -123,3 +92,13 @@
 <!-- end::Body -->
 
 @endsection
+
+@push('kurikulum')
+<script>
+    $("#kurikulum").DataTable({
+        scrollY:"30vh",
+        crollX:!0,
+        scrollCollapse:!0,
+    });
+</script>
+@endpush

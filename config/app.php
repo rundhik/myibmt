@@ -151,6 +151,7 @@ return [
          * Package Service Providers...
          */
         Zizaco\Entrust\EntrustServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -211,6 +212,7 @@ return [
 
         //Alias paket-paket
         'Entrust' => Zizaco\Entrust\Facade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];
