@@ -68,9 +68,9 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
+                                        <th>Nama Kurikulum</th>
                                         <th>Tahun Akademik</th>
                                         <th>Program Studi</th>
-                                        <th>Nama Kurikulum</th>
                                         <th>Actions</th>
                                     </tr>
                                 </tfoot>
