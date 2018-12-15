@@ -31,7 +31,12 @@ class KurikulumController extends Controller
      */
     public function create()
     {
-        return view('kurikulum.create');
+        $subheader = 'Tambah Kurikulum';
+        $k = new Kurikulum;
+        $prodi = $k->find(1)->prodi->all();
+        $thnsmt = $k->find(1)->thn_semester->all();
+        $data = $k->get();
+        return view('kurikulum.create',compact('subheader','prodi','thnsmt','data'));
     }
 
     /**
@@ -42,7 +47,12 @@ class KurikulumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kurikulum = new Kurikulum;
+        $kurikulum->nm_kurikulum = $request->nm_kurikulum;
+        $kurikulum->kode_prodi_id = $request->kode_prodi_id;
+        $kurikulum->thn_semester_id = $request->thn_semester_id;
+        $kurikulum->save();
+        return redirect()->route('kurikulum.index')->with('success','Kurikulum Berhasil ditambah');
     }
 
     /**
@@ -53,7 +63,10 @@ class KurikulumController extends Controller
      */
     public function show($id)
     {
-        return view('kurikulum.show');
+        $subheader = 'Hapus Kurikulum';
+        $k = new Kurikulum;
+        $data = $k->find($id);
+        return view('kurikulum.show', compact('data','subheader'));
     }
 
     /**
@@ -64,7 +77,15 @@ class KurikulumController extends Controller
      */
     public function edit($id)
     {
-        return view('kurikulum.edit');
+        $subheader = 'Edit Kurikulum';
+        $k = new Kurikulum;
+        $prodi = $k->find($id)->prodi->all();
+        $thnsmt = $k->find($id)->thn_semester->all();
+        $data = $k->find($id);
+        $krk = $k->get();
+        // foreach ($krk as $key)
+        // var_dump($key->thn_semester_id) or die;
+        return view('kurikulum.edit', compact('data', 'subheader','krk','prodi','thnsmt'));
     }
 
     /**
@@ -76,7 +97,9 @@ class KurikulumController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kurikulum = Kurikulum::findOrFail($id);
+        $kurikulum->update($request->all());
+        return redirect()->route('kurikulum.index')->with('success','Kurikulum Berhasil di update');
     }
 
     /**
@@ -87,6 +110,8 @@ class KurikulumController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kurikulum = Kurikulum::findOrFail($id);
+        $kurikulum->forcedelete();
+        return redirect()->route('kurikulum.index')->with('success','Kurikulum Berhasil dihapus');
     }
 }
