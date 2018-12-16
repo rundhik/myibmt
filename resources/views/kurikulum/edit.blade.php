@@ -68,8 +68,8 @@
                                     <div class="m-portlet__foot m-portlet__foot--fit">
                                         <div class="m-form__actions  m-form__actions">
                                             <div class="col-lg-9 ml-lg-auto">
-                                                <button type="submit" class="btn btn-primary">Submit</button>&nbsp; &nbsp;
-                                                <a class="btn btn-secondary" href="{{ route('kurikulum.index') }}">Cancel</a>
+                                                <button type="submit" class="btn btn-primary">Simpan</button>&nbsp; &nbsp;
+                                                <a class="btn btn-secondary" href="{{ route('kurikulum.index') }}">Batal</a>
                                             </div>
                                         </div>
                                     </div>
