@@ -16,12 +16,12 @@ class ProgramStudiSeeder extends Seeder
             [
                 'id' => 1,
                 'kode_prodi' => 61101,
-                'deskripsi' => 'S1 Manajemen',
+                'deskripsi' => 'S2 Manajemen',
             ],
             [
                 'id' => 2,
                 'kode_prodi' => 61201,
-                'deskripsi' => 'S2 Manajemen',
+                'deskripsi' => 'S1 Manajemen',
             ],
         ];
         foreach ($ngawur as $key => $sbrg) {
