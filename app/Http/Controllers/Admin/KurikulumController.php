@@ -83,8 +83,6 @@ class KurikulumController extends Controller
         $thnsmt = $k->find($id)->thn_semester->all();
         $data = $k->find($id);
         $krk = $k->get();
-        // foreach ($krk as $key)
-        // var_dump($key->thn_semester_id) or die;
         return view('kurikulum.edit', compact('data', 'subheader','krk','prodi','thnsmt'));
     }
 

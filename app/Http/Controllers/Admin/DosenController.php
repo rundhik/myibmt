@@ -4,6 +4,7 @@ namespace MyIBMT\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use MyIBMT\Http\Controllers\Controller;
+use MyIBMT\Models\Dosen;
 
 class DosenController extends Controller
 {
@@ -21,7 +22,10 @@ class DosenController extends Controller
     
     public function index()
     {
-        return view('dosen.index');
+        $subheader = 'Dosen';
+        $d = new Dosen;
+        $data = $d->get();
+        return view('dosen.index',compact('subheader','data'));
     }
 
     /**
@@ -31,7 +35,8 @@ class DosenController extends Controller
      */
     public function create()
     {
-        return view('dosen.create');
+        $subheader = 'Dosen';
+        return view('dosen.create',compact('subheader','data'));
     }
 
     /**
@@ -42,7 +47,11 @@ class DosenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dosen = new Dosen;
+        $dosen->nm_dosen = $request->nm_dosen;
+        $dosen->nidn = $request->nidn;
+        $dosen->save();
+        return redirect()->route('dosen.index')->with('success','Dosen Berhasil ditambah');
     }
 
     /**
@@ -53,7 +62,9 @@ class DosenController extends Controller
      */
     public function show($id)
     {
-        return view('dosen.show');
+        $subheader = 'Hapus Dosen';
+        $data = Dosen::findOrFail($id);
+        return view('dosen.show', compact('subheader', 'data'));
     }
 
     /**
@@ -64,7 +75,10 @@ class DosenController extends Controller
      */
     public function edit($id)
     {
-        return view('dosen.edit');
+        $subheader = 'Edit Dosen';
+        $d = new Dosen;
+        $data = $d->find($id);
+        return view('dosen.edit', compact('data', 'subheader'));
     }
 
     /**
@@ -76,7 +90,9 @@ class DosenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dosen = Dosen::findOrFail($id);
+        $dosen->update($request->all());
+        return redirect()->route('dosen.index')->with('success', 'Data dosen berhasil diubah');
     }
 
     /**
@@ -88,6 +104,8 @@ class DosenController extends Controller
     
     public function destroy($id)
     {
-        return 'Halaman untuk delete Dosen';
+        $dosen = Dosen::findOrFail($id);
+        $dosen->delete();
+        return redirect()->route('dosen.index')->with('success','Dosen Berhasil dihapus');
     }
 }
