@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::resource('kurikulum', 'KurikulumController');
     Route::resource('matakuliah', 'MataKuliahController');
+    Route::get('matkulprodi/{prodi}', 'MataKuliahController@index')->name('matakuliah.prodi');
+    Route::get('matakuliah/create/{prodi}', 'MataKuliahController@create')->name('matakuliah.create');
     Route::resource('dosen', 'DosenController');
     Route::resource('ruangan', 'RuangPerkuliahanController');
     Route::resource('jadwal', 'JadwalController');
