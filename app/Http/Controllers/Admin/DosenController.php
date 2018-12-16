@@ -35,8 +35,8 @@ class DosenController extends Controller
      */
     public function create()
     {
-        $subheader = 'Dosen';
-        return view('dosen.create',compact('subheader','data'));
+        $subheader = 'Tambah Dosen';
+        return view('dosen.create',compact('subheader'));
     }
 
     /**
@@ -51,7 +51,7 @@ class DosenController extends Controller
         $dosen->nm_dosen = $request->nm_dosen;
         $dosen->nidn = $request->nidn;
         $dosen->save();
-        return redirect()->route('dosen.index')->with('success','Dosen Berhasil ditambah');
+        return redirect()->route('dosen.index')->with('success','Dosen berhasil ditambah');
     }
 
     /**
@@ -77,7 +77,7 @@ class DosenController extends Controller
     {
         $subheader = 'Edit Dosen';
         $d = new Dosen;
-        $data = $d->find($id);
+        $data = $d->findOrFail($id);
         return view('dosen.edit', compact('data', 'subheader'));
     }
 
