@@ -325,6 +325,7 @@
 		<script src="{{ asset('assets/js/datatables.bundle.js')}}" type="text/javascript"></script>
 		@stack('kurikulum')
 		@stack('dosen')
+		@stack('ruangkuliah')
 		{{-- <script src="{{ asset('assets/js/html-table.js')}}" type="text/javascript"></script> --}}
 		{{-- <script src="{{ asset('assets/js/advanced-search.js')}}" type="text/javascript"></script> --}}
 		<!--end::Page Vendors -->
