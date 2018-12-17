@@ -24,8 +24,13 @@ class Kurikulum extends Model
     {
         return $this->belongsTo('MyIBMT\Models\TahunSemester', 'thn_semester_id');
     }
-    
+
     public function kelasperkuliahans()
+    {
+        return $this->hasMany('MyIBMT\Models\KelasPerkuliahan', 'kurikulum_id');
+    }
+    
+    public function jadwals()
     {
         return $this->hasManyThrough(
             'MyIBMT\Models\Jadwal',
