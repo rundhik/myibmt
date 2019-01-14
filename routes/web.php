@@ -25,6 +25,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('matakuliah/create/{prodi}', 'MataKuliahController@create')->name('matakuliah.create');
     Route::resource('dosen', 'DosenController');
     Route::resource('ruangan', 'RuangPerkuliahanController');
+    Route::resource('kelas', 'KelasPerkuliahanController');
     Route::resource('jadwal', 'JadwalController');
     Route::resource('user', 'UserController');
     Route::resource('role', 'RoleController');

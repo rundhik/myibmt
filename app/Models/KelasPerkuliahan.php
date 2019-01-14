@@ -13,12 +13,12 @@ class KelasPerkuliahan extends Model
 
     public function kurikulums()
     {
-        return $this->belongsToMany('MyIBMT\Models\Kurikulum', 'kurikulums', 'kurikulum_id', 'id');
+        return $this->belongsTo('MyIBMT\Models\Kurikulum', 'kurikulum_id');
     }
 
     public function matakuliahs()
     {
-        return $this->belongsToMany('MyIBMT\Models\MataKuliah', 'matakuliahs', 'matakuliah_id', 'id');
+        return $this->belongsTo('MyIBMT\Models\MataKuliah', 'matakuliah_id');
     }
 
     public function jadwals()

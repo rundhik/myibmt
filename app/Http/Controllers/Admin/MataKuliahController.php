@@ -17,7 +17,7 @@ class MataKuliahController extends Controller
     {
         $m = new MataKuliah;
         $subheader = 'Mata Kuliah '.$m->findOrFail($id)->prodi->find($id)->deskripsi;
-        $prodi_id = $m->findOrFail($id)->prodi->find($id)->id;
+        $prodi_id = $id;
         $prodi = $m->findOrFail($id)->prodi->all();
         $data = $m->where('prodi_id','=',$id)->get();
         return view('matakuliah.index', compact('subheader','data','prodi', 'prodi_id'));
@@ -33,7 +33,7 @@ class MataKuliahController extends Controller
         $m = new MataKuliah;
         $subheader = 'Tambah Mata Kuliah '.$m->findOrFail($id)->prodi->findOrFail($id)->deskripsi;
         $prodi = $m->findOrFail($id)->prodi->findOrFail($id)->deskripsi;
-        $prodi_id = $m->findOrFail($id)->prodi->findOrFail($id)->id;
+        $prodi_id = $id;
         return view('matakuliah.create', compact('subheader','prodi','prodi_id'));
     }
 
