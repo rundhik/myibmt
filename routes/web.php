@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', 'GuestController@index');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
@@ -27,6 +28,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::resource('ruangan', 'RuangPerkuliahanController');
     Route::resource('kelas', 'KelasPerkuliahanController');
     Route::resource('jadwal', 'JadwalController');
+    Route::get('jadwalprodi/{prodi}', 'JadwalController@index')->name('jadwal.prodi');
+    Route::get('matakuliah/create/{prodi}', 'JadwalController@create')->name('jadwal.create');
     Route::resource('user', 'UserController');
     Route::resource('role', 'RoleController');
 });

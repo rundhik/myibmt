@@ -4,6 +4,9 @@ namespace MyIBMT\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use MyIBMT\Http\Controllers\Controller;
+use MyIBMT\Models\Jadwal;
+use MyIBMT\Models\KelasPerkuliahan;
+use MyIBMT\Models\Kurikulum;
 
 class JadwalController extends Controller
 {
@@ -14,7 +17,13 @@ class JadwalController extends Controller
      */
     public function index()
     {
-        return view('jadwal.index');
+        $subheader = 'Jadwal Perkuliahan';
+        $j = new Jadwal;
+        $kls = new KelasPerkuliahan;
+        $krk = new Kurikulum;
+        // $prodi = $krk->find($j->find(1)->kelasperkuliahan->kurikulum_id)->prodi->id;
+        $data = $j->get();
+        return view('jadwal.index', compact('subheader','data'));
     }
 
     /**

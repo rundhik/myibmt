@@ -225,13 +225,13 @@
 												   <li class="m-menu__item">
 													   <h3 class="m-menu__heading m-menu__toggle"><span class="m-menu__link-text">S1 Manajemen</span><i class="m-menu__ver-arrow la la-angle-right"></i></h3>
 													   <ul class="m-menu__inner">
-														   <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="{{route('jadwal.index')}}" class="m-menu__link "><i class="m-menu__link-icon flaticon-map"></i><span class="m-menu__link-text">Jadwal Kuliah S1</span></a></li>
+														   <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="{{route('jadwal.prodi', 1)}}" class="m-menu__link "><i class="m-menu__link-icon flaticon-map"></i><span class="m-menu__link-text">Jadwal Kuliah S1</span></a></li>
 													   </ul>
 												   </li>
 												   <li class="m-menu__item">
 													   <h3 class="m-menu__heading m-menu__toggle"><span class="m-menu__link-text">S2 Manajemen</span><i class="m-menu__ver-arrow la la-angle-right"></i></h3>
 													   <ul class="m-menu__inner">
-														   <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="{{route('jadwal.index')}}" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--line"><span></span></i><span class="m-menu__link-text">Jadwa Kuliah S2</span></a></li>
+														   <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true"><a href="{{route('jadwal.prodi', 2)}}" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--line"><span></span></i><span class="m-menu__link-text">Jadwa Kuliah S2</span></a></li>
 													   </ul>
 												   </li>
 											   </ul>
@@ -350,6 +350,7 @@
 		@stack('ruangkuliah')
 		@stack('matakuliah')
 		@stack('kelas')
+		@stack('jadwal')
 		{{-- <script src="{{ asset('assets/js/html-table.js')}}" type="text/javascript"></script> --}}
 		{{-- <script src="{{ asset('assets/js/advanced-search.js')}}" type="text/javascript"></script> --}}
 		<!--end::Page Vendors -->
